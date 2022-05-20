@@ -4,6 +4,7 @@ import {
     Container,
     Flex,
     useColorMode,
+    Text
   } from '@chakra-ui/react';
   
   
@@ -13,7 +14,9 @@ import {
       <>
         <Container maxW="1400px" w="95%" py={{ base: '1.5rem', lg: '2.5rem' }} data-testid="navbar">
           <Flex justifyContent="space-between" alignItems="center">
-            CoinGecko
+            <Text color="brand.300" >
+              CoinGecko
+            </Text>
             <Button onClick={toggleColorMode} variant={"unstyled"}>
                 {colorMode === 'light' ? 
                 (<MoonIcon />) : (<SunIcon />)}

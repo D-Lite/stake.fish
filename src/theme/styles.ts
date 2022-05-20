@@ -1,13 +1,22 @@
 const styles = {
-    global: {
-      body: {
-        color: 'font.1',
-        fontSize: 'textMedium16',
-        fontWeight: 'normal',
-        letterSpacing: '0.4px',
-      },
+  global: {
+    body: {
+      color: 'text.3',
+      fontSize: '16px',
+      fontWeight: 'normal',
+      bg: 'white',
     },
-  };
-  
-  export default styles;
-  
+    '::-moz-selection': {
+      background: 'brand.500',
+      color: 'white',
+      opacity: '1',
+    },
+    '::selection': {
+      background: 'brand.500',
+      color: 'white',
+      opacity: '1',
+    },
+  },
+};
+
+export default styles;
