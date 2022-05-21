@@ -1,6 +1,5 @@
 import { Icon } from "@chakra-ui/icons"
 import { Box, IconButton, Link } from "@chakra-ui/react"
-import { FaMediumM } from "react-icons/fa"
 
 type Props = {
     isDisabled?: boolean;

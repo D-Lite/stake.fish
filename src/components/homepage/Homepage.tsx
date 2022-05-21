@@ -1,9 +1,8 @@
-import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { Box, Table, Image, TableContainer, Tbody, Td, Text, Th, Thead, Tr, Flex, Button, Link } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useCallback, useEffect, useState } from "react";
+import { ExchangeCard, PageSkeleton } from "..";
 import { getExchanges } from "../../apis/coingecko";
-import { resultType } from "../../types/resultType";
-import ExchangeCard from "../exchangeCard/ExchangeCard";
+import { resultType } from "../../types/resultType"; 
 
 const Homepage = () => {
     
@@ -21,7 +20,7 @@ const Homepage = () => {
     useEffect(() => {
         const getResult =async () => {
             try {
-                const exchanges = await getAllExchanges();
+                await getAllExchanges();
             } catch (error) {
                 console.log(error)
             }
@@ -49,8 +48,8 @@ const Homepage = () => {
                 )}
 
                 </Box> :
-                <Box>
-                    "No result yet"
+                <Box minH={"80vh"}>
+                    <PageSkeleton isLoading={true}/>
                 </Box>
             }
             

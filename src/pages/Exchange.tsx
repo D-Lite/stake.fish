@@ -1,18 +1,18 @@
-import { Box, Flex, Text, Image, Icon, Link, IconButton, useColorMode, Divider, useMediaQuery, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, useColorMode, Divider, Spacer } from "@chakra-ui/react";
 import { useState, useCallback, useEffect } from "react";
-import { Link as RouterLink, useParams } from "react-router-dom";
+import {  useParams } from "react-router-dom";
 import { getOneExchange } from "../apis/coingecko";
-import { ExchangeInfo } from "../types/resultType";
+import { ExchangeInfo } from "../types/exchangeInfo";
 
-import { FaFacebookF, FaMediumM, FaReddit, FaSlack, FaTelegram, FaTwitter } from "react-icons/fa";
-import SocialIcon from "../components/socials/SocialIcon";
+import { FaFacebookF, FaReddit, FaSlack, FaTelegram, FaTwitter } from "react-icons/fa";
+import { SocialIcon, PageSkeleton } from "../components";
+
 
 
 const Exchange = () => {
 
 
   const { id } = useParams<"id">();
-  console.log(id)
 
   const [isExchangeLoading, setIsExchangeLoading] = useState<boolean>(false);
   const [result, setResult] = useState<ExchangeInfo>();
@@ -41,8 +41,13 @@ const Exchange = () => {
   const { colorMode } = useColorMode();
 
     return (
-
-        <Box as="div" w="100vw">
+        <>
+        {
+            !isExchangeLoading ?
+            <Box  
+            minH="80vh"
+            flexDirection="column"
+        >
             <Box as="div" mx={"5vw"}>   
                 <Box h={"25vh"} borderColor={"gray.50"} 
                     borderRadius={"20"} 
@@ -66,7 +71,7 @@ const Exchange = () => {
                         <Text fontWeight={"bold"}>{result?.name}</Text>
                     </Flex>
                     <Flex align={"center"} justify={"center"} flexDir={"column"} color={"black"} mt="3">
-                        <Text>Rank: {result?.trust_score_rank}</Text>
+                        <Text>Trust Rank: {result?.trust_score_rank}</Text>
                     </Flex>
                 </Box>
                 <Flex align={"center"} mt={"4"} justify={"center"}>
@@ -100,18 +105,14 @@ const Exchange = () => {
                     </Flex>
                 </Box>
 
-                {
-                    result?.description && <>
-                    <Divider orientation='horizontal' colorScheme={"blackAlpha"} my={"3"}/>
-
+                <Divider orientation='horizontal' colorScheme={"blackAlpha"} my={"3"}/>
                     <Box>
                         <Text fontWeight={"bold"} fontSize={"xl"}>Description</Text>
                         <Text as={"p"} fontSize={"small"}>
-                        {result?.description}
+                        {result?.description ? result?.description : "Description not available at the moment. Thank you!"}
                         </Text>
                     </Box>
-                    </>
-                }
+
 
                 <Divider orientation='horizontal' colorScheme={"blackAlpha"} my={"3"}/>
 
@@ -153,7 +154,13 @@ const Exchange = () => {
                 }
 
             </Box>
-        </Box>
+            </Box>
+            : 
+            <Flex justify={"center"} minH={"80vh"}>
+                <PageSkeleton isLoading={true}/>
+            </Flex>
+        }
+        </>
     )
 }
 

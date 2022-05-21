@@ -1,13 +1,14 @@
-import { Navbar } from '../components/index';
+import { Footer, Navbar } from '../components';
 import { Box } from '@chakra-ui/react';
 
 import {
   Routes,
   Route
 } from "react-router-dom";
-
-import Home from './Home';
 import Exchange from './Exchange';
+import Home from './Home';
+
+
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/exchange/:id" element={ <Exchange /> } />
           <Route path="/" element={ <Home /> } />
         </Routes>
+        <Footer />
       </Box>
     </>
   );

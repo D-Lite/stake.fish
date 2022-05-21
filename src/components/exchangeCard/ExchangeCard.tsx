@@ -1,5 +1,5 @@
 import { ExternalLinkIcon } from "@chakra-ui/icons";
-import { Flex, Box, Button, Image, Text, Link, LinkOverlay, LinkBox } from "@chakra-ui/react";
+import { Flex, Box, Button, Image, Text, Link, LinkBox } from "@chakra-ui/react";
 import { Link as RouteLink } from "react-router-dom"
 
 type Props = {
@@ -15,7 +15,7 @@ const ExchangeCard = ({logo, name, country, trust_rank, website, id}: Props) => 
 
     return (
         <LinkBox>
-            <Flex w={"90vw"} my={"5"} border="1px solid" borderRadius={"10"} borderColor="brand.300" p={4}>
+            <Flex w={{base: "90vw", md: "40vw"}} my={"5"} border="1px solid" borderRadius={"10"} borderColor="brand.300" p={4}>
                 <Flex w={"inherit"} justifyContent={"space-between"} alignItems={"center"} fontSize={"12px"}>
                     <Box ml={-4}>
                         <RouteLink

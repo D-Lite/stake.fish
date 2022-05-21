@@ -1,5 +1,5 @@
-import { Homepage, Navbar } from '../components/index';
-import { Box, Button, Flex } from '@chakra-ui/react';
+import { Homepage } from '../components/index';
+import { Box, Flex } from '@chakra-ui/react';
 
 function Home() {
   return (
