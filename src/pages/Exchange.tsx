@@ -70,11 +70,26 @@ const Exchange = () => {
                     </Flex>
                 </Box>
                 <Flex align={"center"} mt={"4"} justify={"center"}>
-                    <SocialIcon url={result?.facebook_url} isDisabled={result?.facebook_url === ""} mainIcon={FaFacebookF} baseColor={"blue"}/>
-                    <SocialIcon url={result?.reddit_url} isDisabled={result?.reddit_url === ""} mainIcon={FaReddit} baseColor={"red"}/>
-                    <SocialIcon url={result?.telegram_url} isDisabled={result?.telegram_url === ""} mainIcon={FaTelegram} baseColor={"blue"}/>
-                    <SocialIcon url={result?.slack_url} isDisabled={result?.slack_url === ""} mainIcon={FaSlack} baseColor={"purple"}/>
-                    <SocialIcon url={result?.twitter_handle} isDisabled={result?.twitter_handle === ""} mainIcon={FaTwitter} baseColor={"blue"}/>
+                    <SocialIcon 
+                        url={result?.facebook_url && (result?.facebook_url.includes("http") ? result?.facebook_url : `https://facebook.com/${result?.facebook_url}`)} 
+                        isDisabled={result?.facebook_url === ""} mainIcon={FaFacebookF} baseColor={"blue"}
+                    />
+                    <SocialIcon 
+                        url={result?.reddit_url && (result?.reddit_url.includes("http") ? result?.reddit_url : `https://reddit.com/r/${result?.reddit_url}`) } 
+                        isDisabled={result?.reddit_url === ""} mainIcon={FaReddit} baseColor={"red"}
+                    />
+                    <SocialIcon 
+                        url={result?.telegram_url && (result?.telegram_url.includes("http") ? result?.telegram_url : `https://t.me/joinchat/${result?.telegram_url}`)} 
+                        isDisabled={result?.telegram_url === ""} mainIcon={FaTelegram} baseColor={"blue"}
+                    />
+                    <SocialIcon 
+                        url={result?.slack_url} 
+                        isDisabled={result?.slack_url === ""} mainIcon={FaSlack} baseColor={"purple"}
+                    />
+                    <SocialIcon 
+                        url={result?.twitter_handle && (result?.twitter_handle.includes("http") ? result?.twitter_handle : `https://twitter.com/${result?.twitter_handle}`)} 
+                        isDisabled={result?.twitter_handle === ""} mainIcon={FaTwitter} baseColor={"blue"}
+                    />
                 </Flex>
                 
                 <Box borderRadius={"20"} mt="4"  

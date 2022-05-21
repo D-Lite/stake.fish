@@ -16,14 +16,14 @@ import { Link as RouterLink, useParams } from "react-router-dom";
     return (
       <>
         <Container maxW="1400px" w="95%" py={{ base: '1.5rem', lg: '2.5rem' }} data-testid="navbar">
-          <Flex justifyContent="space-between" alignItems="center">
+          <Flex justifyContent="space-between" alignItems="flex-end">
           {
             id !== undefined &&
             <RouterLink to={`/`}>
               Backs
             </RouterLink>           
           }
-           <Text color="brand.300" >
+           <Text color="brand.300" fontWeight={"bold"} fontSize={"xl"}>
               <RouterLink to={`/`}>
                 Stake.fish
               </RouterLink>

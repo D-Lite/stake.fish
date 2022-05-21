@@ -15,7 +15,7 @@ const ExchangeCard = ({logo, name, country, trust_rank, website, id}: Props) => 
 
     return (
         <LinkBox>
-            <Flex w={"90vw"} borderColor={"brand.200"} my={"5"} border="1px solid" borderRadius={"10"} p={4}>
+            <Flex w={"90vw"} my={"5"} border="1px solid" borderRadius={"10"} borderColor="brand.300" p={4}>
                 <Flex w={"inherit"} justifyContent={"space-between"} alignItems={"center"} fontSize={"12px"}>
                     <Box ml={-4}>
                         <RouteLink
@@ -51,9 +51,7 @@ const ExchangeCard = ({logo, name, country, trust_rank, website, id}: Props) => 
                         </Text>
                         <Text>
                         <Link href={website} isExternal>
-                            <LinkOverlay>
                             Website <ExternalLinkIcon mx='2px' />
-                            </LinkOverlay>
                         </Link>
                         </Text>
                     </Flex>
