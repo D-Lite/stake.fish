@@ -22,6 +22,7 @@ const ExchangeCard = ({logo, name, country, trust_rank, website, id}: Props) => 
                             style={{ display: "block" }}
                             to={`/exchange/${id}`}
                             key={id}
+                            className="openExchangePage"
                             >
                                 <Flex align={"center"} justify={"center"}>
                                     <Box>

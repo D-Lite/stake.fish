@@ -16,11 +16,12 @@ import { Link as RouterLink, useLocation } from "react-router-dom";
 
     return (
       <>
-        <Container maxW="1400px" w="95%" py={{ base: '1.5rem', lg: '2.5rem' }} data-testid="navbar">
+        <Container maxW="1400px" w="95%" py={{ base: '1.5rem', lg: '2.5rem' }} className='pageNavbar'>
           <Flex justifyContent="space-between" alignItems="center">
           {
             checkURL.pathname !== "/" &&
             <RouterLink to={`/`}>
+              {/* only shows when on the exchange page */}
               <Button variant={"outline"} color={"brand.300"}>
                 <FaArrowLeft />
             </Button>
@@ -31,6 +32,7 @@ import { Link as RouterLink, useLocation } from "react-router-dom";
                 Stake.fish
               </RouterLink>
             </Text>
+            {/* theme toggle from light to dark mode */}
             <Button onClick={toggleColorMode} variant={"unstyled"}>
                 {colorMode === 'light' ? 
                 (<MoonIcon />) : (<SunIcon />)}

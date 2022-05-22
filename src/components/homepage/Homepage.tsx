@@ -34,7 +34,7 @@ const Homepage = () => {
         <>
             {
                 !isStatementLoading ? 
-                <Box>
+                <Box className="exchangeList">
                 {result?.map((exchange: any) => 
                     <ExchangeCard 
                         id={exchange?.id}

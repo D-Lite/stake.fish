@@ -48,7 +48,7 @@ const Exchange = () => {
             minH="80vh"
             flexDirection="column"
         >
-            <Box as="div" mx={"5vw"}>   
+            <Box as="div" mx={"5vw"} className="exchangeInfoPage">   
                 <Box h={"25vh"} borderColor={"gray.50"} 
                     borderRadius={"20"} 
                     background={colorMode === "light" ? "rgba(255, 255, 255, 0.4)" : "linear-gradient(to right, #3494e6, #ec6ead)" }
@@ -75,6 +75,7 @@ const Exchange = () => {
                     </Flex>
                 </Box>
                 <Flex align={"center"} mt={"4"} justify={"center"}>
+                    {/* custom social media component, performs the function needed for this application */}
                     <SocialIcon 
                         url={result?.facebook_url && (result?.facebook_url.includes("http") ? result?.facebook_url : `https://facebook.com/${result?.facebook_url}`)} 
                         isDisabled={result?.facebook_url === ""} mainIcon={FaFacebookF} baseColor={"blue"}

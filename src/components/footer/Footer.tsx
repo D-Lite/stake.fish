@@ -13,9 +13,10 @@ const Footer = () => {
                 bottom={"0"}
                 height="10px"
                 flexShrink={"0"}
+                className="pageFooter"
                 >
                 <Flex width="100%" justifyContent="center" wrap="wrap">
-                    <Text >© {new Date(Date.now()).getFullYear()} Stake.fish Assessment</Text>
+                    <Text  className="footerText">© {new Date(Date.now()).getFullYear()} Stake.fish Assessment</Text>
                 </Flex>
             </Flex>
         </>
