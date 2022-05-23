@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import Exchange from './Exchange';
 import Home from './Home';
+import Error from './Error';
 
 
 
@@ -18,6 +19,7 @@ function App() {
         <Routes>
           <Route path="/exchange/:id" element={ <Exchange /> } />
           <Route path="/" element={ <Home /> } />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </Box>

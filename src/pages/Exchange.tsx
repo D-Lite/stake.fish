@@ -1,17 +1,17 @@
-import { Box, Flex, Text, Image, useColorMode, Divider, Spacer } from "@chakra-ui/react";
+import { Box, Flex, Text, Image, useColorMode, Divider, Spacer, useToast } from "@chakra-ui/react";
 import { useState, useCallback, useEffect } from "react";
 import {  useParams } from "react-router-dom";
 import { getOneExchange } from "../apis/coingecko";
 import { ExchangeInfo } from "../types/exchangeInfo";
-
+import { useNavigate } from "react-router-dom";
 import { FaFacebookF, FaReddit, FaSlack, FaTelegram, FaTwitter } from "react-icons/fa";
 import { SocialIcon, PageSkeleton } from "../components";
 
 
 
 const Exchange = () => {
-
-
+  const toast = useToast()
+  let navigate = useNavigate();
   const { id } = useParams<"id">();
 
   const [isExchangeLoading, setIsExchangeLoading] = useState<boolean>(false);
@@ -21,14 +21,24 @@ const Exchange = () => {
       setIsExchangeLoading(true);
       const response = await getOneExchange(id!);
       setIsExchangeLoading(false)
-
+      
       setResult(response?.data)
+      if(!response?.data) {
+        toast({
+            description: "The exchange you requested is not available at the moment.",
+            status: 'error',
+            duration: 4000,
+            isClosable: false,
+            position: 'top'
+          })
+          navigate('/')
+      }
   }, [])
 
   useEffect(() => {
       const getResult =async () => {
           try {
-              const singleExchange = await getExchange();
+              await getExchange();
           } catch (error) {
               console.log(error)
           }
